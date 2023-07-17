@@ -90,8 +90,16 @@ extension HamburgerViewController:HomeViewControllerdelegate {
         case .history:
             history()
         case .settings:
-            break
+            control()
+            
         }
+    }
+    
+    func control() {
+        let alert = UIAlertController(title: "Coming Soon", message: "You Cant Access Settings On Trail,New Version Out Next Week", preferredStyle: .alert)
+           alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+           present(alert, animated: true, completion: nil)
+        HapticManager.shared.vibrate(for: .error)
     }
     func  history() {
         let vc =  historyVc
